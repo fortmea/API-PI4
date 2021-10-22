@@ -32,3 +32,13 @@ exports.put = async(id, data) =>{
         });
     return res;
 }
+
+exports.delete = async(id) => {
+
+    var res = await Usuario.destroy({
+        where: {
+            USR_ID: id
+        }
+    });
+    return res;
+}
