@@ -5,7 +5,7 @@ exports.databaseCredentials = {
     database: process.env.dbname,
     user: process.env.dbuser,
     password: process.env.dbpass,
-    dialect: process.env.dbdialect
+    dialect: 'mysql'
 };
 
 const {Sequelize, Model, DataTypes} = require('sequelize');
