@@ -1,11 +1,11 @@
 const mysql = require('mysql');
 
 exports.databaseCredentials = {
-    host: "localhost",
-    database: "cliente",
-    user: "root",
-    password: "1234",
-    dialect: "mysql"
+    host: process.env.dbhost,
+    database: process.env.dbname,
+    user: process.env.dbuser,
+    password: process.env.dbpass,
+    dialect: process.env.dbdialect
 };
 
 const {Sequelize, Model, DataTypes} = require('sequelize');
