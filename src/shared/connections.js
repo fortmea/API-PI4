@@ -1,11 +1,15 @@
 const mysql = require('mysql');
+const host = process.env.dbhost;
+const database = process.env.dbname;
+const dbuser = process.env.dbuser;
+const password= process.env.dbpass;
 
 exports.databaseCredentials = {
-    host: process.env.dbhost,
-    database: process.env.dbname,
-    user: process.env.dbuser,
-    password: process.env.dbpass,
-    dialect: 'mysql'
+    host: host,
+    database: database,
+    user: dbuser,
+    password: password,
+    dialect: 'mysql '
 };
 
 const {Sequelize, Model, DataTypes} = require('sequelize');
