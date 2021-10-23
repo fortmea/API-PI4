@@ -9,7 +9,7 @@ exports.databaseCredentials = {
     database: database,
     user: dbuser,
     password: password,
-    dialect: 'mysql '
+    dialect: 'mysql'
 };
 
 const {Sequelize, Model, DataTypes} = require('sequelize');
