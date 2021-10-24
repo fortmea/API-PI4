@@ -11,6 +11,8 @@ const { normalize } = require('path');
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 var server;
+console.log(cert);
+console.log(certfile);
 if (!cert) {
     server = http.createServer(app);
 } else {
