@@ -11,16 +11,16 @@ const fs = require('fs');
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 var server;
-console.log(cert);
+/*console.log(cert);
 console.log(certkey);
 if (!cert) {
     server = http.createServer(app);
-} else {
+} else {*/
     server = https.createServer({
         key: fs.readFileSync('/etc/letsencrypt/live/sp.joaowalteramadeu.me/privkey.pem'),
         cert: fs.readFileSync('/etc/letsencrypt/live/sp.joaowalteramadeu.me/fullchain.pem'),
     }, app);
-}
+/*}*/
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
