@@ -17,8 +17,8 @@ if (!cert) {
     server = http.createServer(app);
 } else {
     server = https.createServer({
-        key: fs.readFileSync(certkey),
-        cert: fs.readFileSync(cert),
+        key: fs.readFileSync('/etc/letsencrypt/live/sp.joaowalteramadeu.me/privkey.pem'),
+        cert: fs.readFileSync('/etc/letsencrypt/live/sp.joaowalteramadeu.me/fullchain.pem'),
     }, app);
 }
 server.listen(port);
