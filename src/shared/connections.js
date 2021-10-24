@@ -1,8 +1,8 @@
 const mysql = require('mysql');
-const host = process.env.dbhost;
-const database = process.env.dbname;
-const dbuser = process.env.dbuser;
-const password= process.env.dbpass;
+const host = process.env.dbhost || '127.0.0.1';
+const database = process.env.dbname || 'cliente';
+const dbuser = process.env.dbuser || 'root';
+const password= process.env.dbpass || '1234';
 
 exports.databaseCredentials = {
     host: host,

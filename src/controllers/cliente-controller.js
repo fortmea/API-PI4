@@ -2,10 +2,11 @@
 
 const repository = require('../repositories/cliente-repository');
 const md5 = require('md5');
-
+exports.default = async (req, res) => {
+    return res.send({});
+}
 exports.get = async (req, res, next) => {
     const codigo = req.params.id
-    console.log(codigo)
     try {
         var data = await repository.get(codigo);
         res.status(200).send(data);
@@ -16,11 +17,11 @@ exports.get = async (req, res, next) => {
 
 exports.post = async (req, res, next) => {
     try {
-        if(!req.body.USR_EMAIL || req.body.USR_EMAIL ==""){
-            return res.status(200).send({error: true, message: "Email é um campo obrigatório."});
+        if (!req.body.USR_EMAIL || req.body.USR_EMAIL == "") {
+            return res.status(400).send({ error: true, message: "Email é um campo obrigatório." });
         }
-        if(!req.body.USR_SENHA || req.body.USR_SENHA ==""){
-            return res.status(200).send({error: true, message: "Senha é um campo obrigatório."});
+        if (!req.body.USR_SENHA || req.body.USR_SENHA == "") {
+            return res.status(400).send({ error: true, message: "Senha é um campo obrigatório." });
         }
         var data = await repository.create({
             USR_EMAIL: req.body.USR_EMAIL,
@@ -39,6 +40,9 @@ exports.post = async (req, res, next) => {
 
 exports.delete = async (req, res) => {
     try {
+        if (!req.body.USR_ID || req.body.USR_ID == "") {
+            return res.status(400).send({ error: true, message: "Usuário não encontrado.", USR_ID: req.body.USR_ID });
+        }
         var data = await repository.delete(req.body.USR_ID);
         res.status(200).send({
             message: 'OK'
@@ -53,6 +57,15 @@ exports.delete = async (req, res) => {
 
 exports.put = async (req, res) => {
     try {
+        if (!req.body.USR_ID || req.body.USR_ID == "") {
+            return res.status(400).send({ error: true, message: "Usuário não encontrado.", USR_ID: req.body.USR_ID });
+        }
+        if (!req.body.USR_EMAIL || req.body.USR_EMAIL == "") {
+            return res.status(400).send({ error: true, message: "Email é um campo obrigatório." });
+        }
+        if (!req.body.USR_SENHA || req.body.USR_SENHA == "") {
+            return res.status(400).send({ error: true, message: "Senha é um campo obrigatório." });
+        }
         var n_usuario = {
             USR_EMAIL: req.body.USR_EMAIL,
             USR_SENHA: md5(req.body.USR_SENHA)

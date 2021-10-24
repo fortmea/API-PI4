@@ -23,6 +23,7 @@ exports.create = async(data) =>{
 }
 
 exports.put = async(id, data) =>{
+    console.log(data);
     var res = await Usuario.update(
         data,
         {
