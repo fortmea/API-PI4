@@ -3,7 +3,7 @@
 const repository = require('../repositories/cliente-repository');
 const md5 = require('md5');
 exports.default = async (req, res) => {
-    return res.send(req);
+    return res.send(req.body);
 }
 exports.get = async (req, res, next) => {
     const codigo = req.params.id
