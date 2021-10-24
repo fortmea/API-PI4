@@ -4,11 +4,8 @@ const cert = process.env.certfile;
 const certkey = process.env.certkey;
 
 const app = require('../src/app')
-if (!cert) {
-    const http = require('http');
-} else {
-    const https = require('https');
-}
+const http = require('http');
+const https = require('https');
 const { normalize } = require('path');
 
 const port = normalizePort(process.env.PORT || '3000');
