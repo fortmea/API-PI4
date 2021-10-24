@@ -7,7 +7,7 @@ const app = require('../src/app')
 const http = require('http');
 const https = require('https');
 const { normalize } = require('path');
-
+const fs = require('fs');
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 var server;
