@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 const fs = require('fs')
-let config = requir('config.json')
+let config = require('config.json')
 const host = config.dbhost || '127.0.0.1';
 const database = config.dbname || 'cliente';
 const dbuser = config.dbuser || 'root';
