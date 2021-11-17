@@ -11,11 +11,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 //carregar as rotas
 const indexRoute = require('./routes/index-route');
-const clienteRoute = require('./routes/cliente-route');
+const listaRoute = require('./routes/lista-route');
 
 
 app.use('/', indexRoute);
-app.use('/cliente', clienteRoute);
+app.use('/tarefa', listaRoute);
 
 //teste
 module.exports = app;

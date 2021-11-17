@@ -1,6 +1,6 @@
 'use strict';
 
-const repository = require('../repositories/cliente-repository');
+const repository = require('../repositories/lista-repository');
 const md5 = require('md5');
 exports.default = async (req, res) => {
     return res.send(req.body);
@@ -17,15 +17,12 @@ exports.get = async (req, res, next) => {
 
 exports.post = async (req, res, next) => {
     try {
-        if (!req.body.USR_EMAIL || req.body.USR_EMAIL == "") {
-            return res.status(400).send({ error: true, message: "Email é um campo obrigatório." });
-        }
-        if (!req.body.USR_SENHA || req.body.USR_SENHA == "") {
-            return res.status(400).send({ error: true, message: "Senha é um campo obrigatório." });
+        if (!req.body.ITEM_DESC || req.body.ITEM_DESC == "") {
+            return res.status(400).send({ error: true, message: "Descrição é um campo obrigatório." });
         }
         var data = await repository.create({
             USR_EMAIL: req.body.USR_EMAIL,
-            USR_SENHA: md5(req.body.USR_SENHA)
+ 
         });
         res.status(201).send({
             message: 'OK'
@@ -40,8 +37,8 @@ exports.post = async (req, res, next) => {
 
 exports.delete = async (req, res) => {
     try {
-        if (!req.body.USR_ID || req.body.USR_ID == "") {
-            return res.status(400).send({ error: true, message: "Usuário não encontrado.", USR_ID: req.body.USR_ID });
+        if (!req.body.ITEM_ID || req.body.ITEM_ID == "") {
+            return res.status(400).send({ error: true, message: "Item não encontrado.", USR_ID: req.body.USR_ID });
         }
         var data = await repository.delete(req.body.USR_ID);
         res.status(200).send({
