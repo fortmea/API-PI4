@@ -15,7 +15,7 @@ exports.databaseCredentials = {
 };
 async function initialize() {
     // create db if it doesn't already exist
-    const connection = await mysql.createConnection({ host, port, user, password });
+    const connection = await mysql.createConnection({ host, port, user, password, database });
     await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
 
     // connect to db
