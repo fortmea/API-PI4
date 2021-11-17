@@ -1,6 +1,5 @@
 const mysql = require('mysql');
 const fs = require('fs')
-let config = require('config.json')
 const host = process.env.dbhost || '127.0.0.1';
 const database = process.env.dbname || 'cliente';
 const dbuser = process.env.dbuser || 'root';
