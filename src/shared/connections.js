@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 const fs = require('fs')
-let jsonData = JSON.parse(fs.readFileSync('config.json', 'utf-8'))
+let config = requir('config.json')
 const host = config.dbhost || '127.0.0.1';
 const database = config.dbname || 'cliente';
 const dbuser = config.dbuser || 'root';
@@ -29,7 +29,7 @@ async function initialize() {
     // sync all models with database
     await sequelize.sync();
 }
-initialize()
+initialize();
 const {Sequelize, Model, DataTypes} = require('sequelize');
 exports.sequelize = new Sequelize(
     exports.databaseCredentials.database,
