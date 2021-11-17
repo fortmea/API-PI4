@@ -17,8 +17,8 @@ if (!cert) {
     server = http.createServer(app);
 } else {*/
     server = https.createServer({
-        key: fs.readFileSync('/home/admin/pi4api/key/privkey.pem'),
-        cert: fs.readFileSync('/home/admin/pi4api/key/fullchain.pem'),
+        key: fs.readFileSync('/home/admin/key/privkey.pem'),
+        cert: fs.readFileSync('/home/admin/key/fullchain.pem'),
     }, app);
 /*}*/
 server.listen(port);
