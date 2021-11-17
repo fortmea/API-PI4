@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const config = require('./config.json');
+const config = require('config.json');
 const host = config.dbhost || '127.0.0.1';
 const database = config.dbname || 'cliente';
 const dbuser = config.dbuser || 'root';
