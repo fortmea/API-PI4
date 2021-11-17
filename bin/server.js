@@ -24,7 +24,6 @@ if (!cert) {
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
 console.log('Rodando na porta ' + port);
 
 function normalizePort(val) {
