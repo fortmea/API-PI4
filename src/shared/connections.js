@@ -1,8 +1,9 @@
 const mysql = require('mysql');
-const host = process.env.dbhost || '127.0.0.1';
-const database = process.env.dbname || 'cliente';
-const dbuser = process.env.dbuser || 'root';
-const password= process.env.dbpass || '1234';
+const config = require('./config.json');
+const host = config.dbhost || '127.0.0.1';
+const database = config.dbname || 'cliente';
+const dbuser = config.dbuser || 'root';
+const password= config.dbpass || '1234';
 console.log(database)
 exports.databaseCredentials = {
     host: host,
