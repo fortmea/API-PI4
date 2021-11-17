@@ -2,20 +2,20 @@ const mysql = require('mysql');
 const fs = require('fs')
 const host = process.env.dbhost || '127.0.0.1';
 const database = process.env.dbname || 'cliente';
-const dbuser = process.env.dbuser || 'root';
+const user = process.env.dbuser || 'root';
 const password= process.env.dbpass || '1234';
 const port = 3306;
 console.log(database)
 exports.databaseCredentials = {
     host: host,
     database: database,
-    user: dbuser,
+    user: user,
     password: password,
     dialect: 'mysql'
 };
 async function initialize() {
     // create db if it doesn't already exist
-    const connection = await mysql.createConnection({ host, port, dbuser, password });
+    const connection = await mysql.createConnection({ host, port, user, password });
     await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
 
     // connect to db
