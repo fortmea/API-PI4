@@ -4,6 +4,7 @@ const database = process.env.dbname || 'cliente';
 const dbuser = process.env.dbuser || 'root';
 const password= process.env.dbpass || '1234';
 
+console.log(process.env);
 exports.databaseCredentials = {
     host: host,
     database: database,
