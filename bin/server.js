@@ -15,7 +15,7 @@ app.set('port', port);
         cert: fs.readFileSync('/home/admin/key/fullchain.pem'),
     }, app);
 server.listen(port);
-server.use(cors());
+app.use(cors());
 server.on('error', onError);
 server.on('listening', onListening);
 console.log('Rodando na porta ' + port);
