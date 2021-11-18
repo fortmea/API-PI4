@@ -23,4 +23,4 @@ exports.sequelize = new Sequelize(
         dialect: exports.databaseCredentials.dialect
     });
 
-exports.Usuario = require('../models/lista').init(exports.sequelize, Sequelize);
+exports.Lista = require('../models/lista').init(exports.sequelize, Sequelize);

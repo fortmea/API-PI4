@@ -1,16 +1,16 @@
 'use strict';
 
 const mydb = require('../shared/connections');
-const Usuario = mydb.Usuario;
+const Lista = mydb.Lista;
 
 exports.get = async(codigo) => {
     var res;
     if(codigo == -1){
-        res = await Usuario.findAll();
+        res = await Lista.findAll();
     }else {
-        res = await Usuario.findOne({
+        res = await Lista.findOne({
             where: {
-                USR_ID: codigo
+                ITEM_ID: codigo
             }
         });
     }
@@ -19,16 +19,16 @@ exports.get = async(codigo) => {
 
 exports.create = async(data) =>{
     console.log(data);
-    return await Usuario.create(data);
+    return await Lista.create(data);
 }
 
 exports.put = async(id, data) =>{
     console.log(data);
-    var res = await Usuario.update(
+    var res = await Lista.update(
         data,
         {
             where: {
-                USR_ID: id
+                ITEM_ID: id
             }
         });
     return res;
@@ -36,9 +36,9 @@ exports.put = async(id, data) =>{
 
 exports.delete = async(id) => {
 
-    var res = await Usuario.destroy({
+    var res = await Lista.destroy({
         where: {
-            USR_ID: id
+            ITEM_ID: id
         }
     });
     return res;
