@@ -4,7 +4,9 @@ const cert = process.env.certfile;
 const certkey = process.env.certkey;
 var cors = require('cors')
 const app = require('../src/app')
-app.use(cors())
+app.use(cors({
+    origin: '*'
+}))
 const http = require('http');
 const https = require('https');
 const { normalize } = require('path');
