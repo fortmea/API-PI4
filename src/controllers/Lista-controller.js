@@ -21,7 +21,7 @@ exports.post = async (req, res, next) => {
             return res.status(400).send({ error: true, message: "Descrição é um campo obrigatório." });
         }
         var data = await repository.create({
-            USR_EMAIL: req.body.USR_EMAIL,
+            ITEM_DESC: req.body.ITEM_DESC,
  
         });
         res.status(201).send({
@@ -54,20 +54,17 @@ exports.delete = async (req, res) => {
 
 exports.put = async (req, res) => {
     try {
-        if (!req.body.USR_ID || req.body.USR_ID == "") {
-            return res.status(400).send({ error: true, message: "Usuário não encontrado.", USR_ID: req.body.USR_ID });
+        if (!req.body.ITEM_ID || req.body.ITEM_ID == "") {
+            return res.status(400).send({ error: true, message: "Item não encontrado.", ITEM_ID: req.body.ITEM_ID });
         }
-        if (!req.body.USR_EMAIL || req.body.USR_EMAIL == "") {
-            return res.status(400).send({ error: true, message: "Email é um campo obrigatório." });
+        if (!req.body.ITEM_DESC || req.body.ITEM_DESC == "") {
+            return res.status(400).send({ error: true, message: "Corpo é um campo obrigatório." });
         }
-        if (!req.body.USR_SENHA || req.body.USR_SENHA == "") {
-            return res.status(400).send({ error: true, message: "Senha é um campo obrigatório." });
+
+        var n_item = {
+            ITEM_DESC: req.body.ITEM_DESC
         }
-        var n_usuario = {
-            USR_EMAIL: req.body.USR_EMAIL,
-            USR_SENHA: md5(req.body.USR_SENHA)
-        }
-        var data = await repository.put(req.body.USR_ID, n_usuario)
+        var data = await repository.put(req.body.ITEM_ID, n_item)
         res.status(200).send({
             message: 'OK'
         })
