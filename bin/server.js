@@ -9,7 +9,6 @@ const https = require('https');
 const { normalize } = require('path');
 const fs = require('fs');
 const port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
     const server = https.createServer({
         key: fs.readFileSync('/home/admin/key/privkey.pem'),
         cert: fs.readFileSync('/home/admin/key/fullchain.pem'),
