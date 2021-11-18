@@ -38,9 +38,9 @@ exports.post = async (req, res, next) => {
 exports.delete = async (req, res) => {
     try {
         if (!req.body.ITEM_ID || req.body.ITEM_ID == "") {
-            return res.status(400).send({ error: true, message: "Item não encontrado.", USR_ID: req.body.USR_ID });
+            return res.status(400).send({ error: true, message: "Item não encontrado.", ITEM_ID: req.body.ITEM_ID });
         }
-        var data = await repository.delete(req.body.USR_ID);
+        var data = await repository.delete(req.body.ITEM_ID);
         res.status(200).send({
             message: 'OK'
         })
